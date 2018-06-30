@@ -10,3 +10,56 @@ My first time seeing a FHIR data resource was very overwhelming. After working w
 - Create a connector to call a HAPI-FHIR Java server instead of mocks functions.
 - Support a Questionnaire + Questionnaire Response.
 - Support all resources one day
+
+
+## Sample Queries:
+
+All patients with all fields
+~~~
+{
+  allPatients {
+    resourceType
+    id
+    meta {
+      lastUpdated
+      versionId
+    }
+    gender
+    birthDate
+    name {
+      use
+      text
+      family
+      given
+      text
+      prefix
+      suffix
+      period {
+        start
+        end
+      }
+    }
+    managingOrganization {
+      reference
+    }
+    telecom {
+      use
+      value
+      system
+      rank
+      period {
+        start
+        end
+      }
+    }
+    address {
+      use
+      type
+      country
+      postalCode
+      city
+      text
+    }
+  }
+}
+~~~
