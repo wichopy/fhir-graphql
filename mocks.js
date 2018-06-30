@@ -4,7 +4,10 @@ const mocks = {
   Date:   () => new Date().toISOString(),
   Patient: () => ({
     resourceType: "Patient",
-    id: () => String(casual.integer(from = 0, to = 1000)),
+    id: () => String(casual.integer(0,1000)),
+  }),
+  Meta: () => ({
+    versionId: () => String(casual.integer(0,1000)),
   }),
   HumanName: () => ({
     given: () => [casual.first_name, casual.first_name],
