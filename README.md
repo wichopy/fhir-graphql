@@ -6,7 +6,7 @@ My first time seeing a FHIR data resource was very overwhelming. After working w
 
 ## Roadmap
 
-- Query a Patient resource from mock data
+- ~~Query a Patient resource from mock data~~
 - Create a connector to call a HAPI-FHIR Java server instead of mocks functions.
 - Support a Questionnaire + Questionnaire Response.
 - Support all resources one day
