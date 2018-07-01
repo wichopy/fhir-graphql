@@ -7,7 +7,7 @@ const PORT = 3005;
 
 const app = express();
 
-const baseName = '/fhir-graphql';
+const baseName = process.env.FHIR_GRAPHQL_BASENAME || '';
 
 // bodyParser is needed just for POST.
 app.use(baseName + '/graphql', bodyParser.json(), graphqlExpress({ schema }));
