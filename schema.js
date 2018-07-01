@@ -5,6 +5,7 @@ const typeDefs = `
   type Query {
     patient(id: String): Patient
     allPatients: [Patient]
+    questionnaireResponses: [QuestionnaireResponse]
   }
   scalar Date
 
@@ -106,6 +107,7 @@ const typeDefs = `
   type Code {
     system: String
     code: String
+    display: String
   }
 
   type Extension {
@@ -125,6 +127,36 @@ const typeDefs = `
     gender: Gender
     birthDate: Date
     address: [Address]
+  }
+
+  type QuestionnaireResponseAnswer {
+    valueDate: String
+    valueCoding: Code
+    valueDecimal: Float
+    valueBoolean: Boolean
+    valueInteger: Int
+    valueReference: Reference
+  }
+
+  type QuestionnaireResponseItem {
+    linkId: String
+    definition: String
+    text: String
+    item: [QuestionnaireResponseItem]
+    answer: [QuestionnaireResponseAnswer]
+  }
+
+  type QuestionnaireResponse {
+    resourceType: String
+    id: String
+    meta: Meta
+    extension: [Extension]
+    questionnaire: Reference
+    status: String
+    subject: Reference
+    authored: Date
+    author: Reference
+    item: [QuestionnaireResponseItem]
   }
 `;
 
