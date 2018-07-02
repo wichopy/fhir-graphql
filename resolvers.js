@@ -61,7 +61,7 @@ const resolvers = {
     // From the questionnaireResponseItem, return the answers array.
     questionnaireAnswer(root, args) {
       const questionnaireResponseItem = findByLinkId(
-        questionnaireResponse,
+        questionnaireResponse, // getting the questionnaire Response will become async when we hook up FHIR HAPI
         args.linkId
       );
 
