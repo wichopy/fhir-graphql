@@ -63,3 +63,43 @@ All patients with all fields
   }
 }
 ~~~
+
+Questionnaire Response:
+
+~~~
+{
+  questionnaireResponses {
+    resourceType
+    id
+    meta {
+      versionId
+    }
+    questionnaire{
+      reference
+    }
+    status
+    subject{
+      reference
+    }
+    authored
+    author {
+      reference
+    }
+    item {
+      linkId
+      definition
+      text
+      answer {
+        valueCoding {
+          display
+        }
+        valueBoolean
+        valueDate
+        valueReference {
+          reference
+        }
+      }
+    }
+  }
+}
+~~~

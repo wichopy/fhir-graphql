@@ -1,5 +1,9 @@
 import casual from 'casual'
 
+casual.define('fhir_medication_statement', function() {
+  return 'MedicationStatement/123'
+})
+
 const mocks = {
   Date:   () => new Date().toISOString(),
   Patient: () => ({
@@ -22,6 +26,18 @@ const mocks = {
     postalCode: casual.zip,
     city: casual.city,
     text: casual.address,
+  }),
+  QuestionnaireResponseItem: () => ({
+    definition: casual.text,
+  }),
+  QuestionnaireResponseAnswer: () => ({
+    valueDate: new Date().toISOString(),
+    valueBoolean: casual.boolean,
+    valueFloat: casual.double(0,100),
+    valueInteger: casual.integer(0, 1000),
+  }),
+  Reference: () => ({
+    reference: casual.fhir_medication_statement,
   })
 };
 
