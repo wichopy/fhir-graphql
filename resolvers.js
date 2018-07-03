@@ -1,4 +1,5 @@
 import { findByLinkId } from "./resolverHelpers";
+import { Fhir } from "./connector";
 
 const questionnaireResponse = {
   resourceType: "QuestionnaireResponse",
@@ -54,7 +55,11 @@ const questionnaireResponse = {
 const resolvers = {
   Query: {
     questionnaireResponses() {
-      return [questionnaireResponse];
+      return Fhir.getAll({ resource: 'QuestionnaireResponse' }).then(res => {
+        // Extract resource out of the bundle.
+        const result = res.entry.map(entry => entry.resource)
+        return result;
+      })
     },
     // args: linkId
     // Using the linkId, find the corresponding questionnaireResponseItem
