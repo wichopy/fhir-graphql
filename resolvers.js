@@ -54,8 +54,14 @@ const questionnaireResponse = {
 
 const resolvers = {
   Query: {
-    questionnaireResponses() {
-      return Fhir.getAll({ resource: 'QuestionnaireResponse' }).then(res => {
+    questionnaireResponses(root, args, context) {
+      let request = {
+        resource: 'QuestionnaireResponse'
+      }
+      if (context.token) {
+        request.token = context.token
+      }
+      return Fhir.getAll(request).then(res => {
         // Extract resource out of the bundle.
         const result = res.entry.map(entry => entry.resource)
         return result;

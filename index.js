@@ -10,8 +10,14 @@ const app = express();
 const baseName = process.env.FHIR_GRAPHQL_BASENAME || '';
 
 // bodyParser is needed just for POST.
-app.use(baseName + '/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use(baseName + '/graphql', bodyParser.json(), graphqlExpress(req => ({
+  schema ,
+  context: {
+    token: req.headers.authorization
+  }
+})));
+
 app.get(baseName + '/graphiql', graphiqlExpress({ endpointURL: baseName + '/graphql' })); // if you want GraphiQL enabled
 
-console.log('listening on port ', PORT)
+console.log('View your fhir graphql server at http://localhost:' + PORT + (baseName ? '/'+baseName : '') + '/graphiql')
 app.listen(PORT);
