@@ -1,12 +1,18 @@
-import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools'
-import mocks from './mocks'
+import {
+  makeExecutableSchema,
+  // addMockFunctionsToSchema
+} from "graphql-tools";
+// import mocks from "./mocks";
+import resolvers from './resolvers'
 
 const typeDefs = `
   type Query {
     patient(id: String): Patient
     allPatients: [Patient]
     questionnaireResponses: [QuestionnaireResponse]
+    questionnaireAnswer(linkId: String): [QuestionnaireResponseAnswer]
   }
+
   scalar Date
 
   type Meta {
@@ -113,6 +119,7 @@ const typeDefs = `
   type Extension {
     url: String
     valueCoding: Code
+    valueBoolean: Boolean
   }
 
   type Patient {
@@ -160,6 +167,11 @@ const typeDefs = `
   }
 `;
 
-const schema = makeExecutableSchema({ typeDefs });
-addMockFunctionsToSchema({ schema, mocks });
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+
+// addMockFunctionsToSchema({ schema, mocks });
+
 export default schema;
