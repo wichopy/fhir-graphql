@@ -5,9 +5,10 @@ FROM node:alpine
 # This means there is a very minimal version of linux running, with no Bash or Git by default inside the image.
 # To include other libraries, check out: https://hub.docker.com/_/alpine/ for how to use apt-get
 WORKDIR /usr/src/app
-COPY package*.json ./
+COPY . .
+# COPY package*.json ./
+
 RUN npm install
 
-COPY . .
 EXPOSE 3005
 CMD ["npm", "start"]
