@@ -111,7 +111,7 @@ A Dockerfile has been made for local containerization.
 
 To build the image:
 
-`docker build -t fhir-graphql .`
+`docker build -t [IMAGE_NAME] .`
 
 After building is done, check it exists in your image list
 
@@ -119,8 +119,10 @@ After building is done, check it exists in your image list
 
 To run the image locally:
 
-`docker run -p 3005:3005 -d fhir-graphql`
+`docker run -p 3005:3005 -d [IMAGE_NAME]`
 
 Note: If you want to map it to a different point, simply replace the port left of the :
 
 eg: 3001:3005
+
+The build.sh and push.sh scripts are for deploying to GCP.
