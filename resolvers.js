@@ -70,7 +70,8 @@ const resolvers = {
 	  //args: id of the patient
 	  //Using the patient id, find the correspoding patient
     patient(root, args) {
-      return Fhir.getOne({ resource: 'Patient' }).then(res => {
+      return Fhir.getOne({ resource: 'Patient', id: args.id }).then(res => {
+	    console.log(res)
 	    const result = res.entry.map(entry => entry.resource)
 	    return result;
 
