@@ -13,6 +13,6 @@ const baseName = process.env.FHIR_GRAPHQL_BASENAME || ""
 app.use(baseName + "/graphql", bodyParser.json(), graphqlExpress({ schema }))
 app.get(baseName + "/graphiql", graphiqlExpress({ endpointURL: baseName + "/graphql" })) // if you want GraphiQL enabled
 
-/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
+// eslint-disable-next-line no-console
 console.log("listening on port ", PORT)
 app.listen(PORT)
