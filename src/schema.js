@@ -1,9 +1,9 @@
 import {
-  makeExecutableSchema,
-  // addMockFunctionsToSchema
-} from "graphql-tools";
+    makeExecutableSchema,
+    // addMockFunctionsToSchema
+} from "graphql-tools"
 // import mocks from "./mocks";
-import resolvers from './resolvers'
+import resolvers from "./resolvers"
 
 const typeDefs = `
   type Query {
@@ -165,13 +165,13 @@ const typeDefs = `
     author: Reference
     item: [QuestionnaireResponseItem]
   }
-`;
+`
 
 const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
+    typeDefs,
+    resolvers,
+})
 
 // addMockFunctionsToSchema({ schema, mocks });
 
-export default schema;
+export default schema
