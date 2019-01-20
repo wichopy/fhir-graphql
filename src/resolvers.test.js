@@ -1,4 +1,4 @@
-import { findByLinkId } from "./resolverHelpers";
+import { findByLinkId } from "./resolverHelpers"
 
 const questionnaireResponse = {
   resourceType: "QuestionnaireResponse",
@@ -49,25 +49,28 @@ const questionnaireResponse = {
       ]
     }
   ]
-};
+}
 
-const resolvers = {
-  Query: {
-    questionnaireResponses() {
-      return [questionnaireResponse];
-    },
-    // args: linkId
-    // Using the linkId, find the corresponding questionnaireResponseItem
-    // From the questionnaireResponseItem, return the answers array.
-    questionnaireAnswer(root, args) {
-      const questionnaireResponseItem = findByLinkId(
-        questionnaireResponse, // getting the questionnaire Response will become async when we hook up FHIR HAPI
-        args.linkId
-      );
-
-      return questionnaireResponseItem.answer;
-    }
-  }
-};
-
-export default resolvers;
+test("resolves questionnaire answers given a linkId", () => {
+  expect(findByLinkId(questionnaireResponse, "cohort-number")).toEqual({
+    linkId: "cohort-number",
+    definition: "number",
+    text: "What is the patient's current cohort number?",
+    answer: [
+      {
+        valueCoding: {
+          system: "some.cohortNumber",
+          code: "1",
+          display: "Diagnosis of Disease"
+        }
+      },
+      {
+        valueCoding: {
+          system: "some.cohortNumber",
+          code: "2",
+          display: "Start drugs"
+        }
+      }
+    ]
+  })
+})
