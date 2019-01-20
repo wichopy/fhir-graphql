@@ -1,6 +1,6 @@
 import {
-    makeExecutableSchema,
-    // addMockFunctionsToSchema
+  makeExecutableSchema,
+  // addMockFunctionsToSchema
 } from "graphql-tools"
 // import mocks from "./mocks";
 import resolvers from "./resolvers"
@@ -168,8 +168,8 @@ const typeDefs = `
 `
 
 const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers,
+  typeDefs,
+  resolvers,
 })
 
 // addMockFunctionsToSchema({ schema, mocks });
