@@ -66,7 +66,7 @@ const resolvers = {
       )
 
       return questionnaireResponseItem.answer
-    }
+    },
 	  //args: id of the patient
 	  //Using the patient id, find the correspoding patient
     patient(root, args) {
