@@ -1,4 +1,4 @@
-import { findByLinkId } from "./resolverHelpers";
+import { findByLinkId } from "./resolverHelpers"
 
 const questionnaireResponse = {
   resourceType: "QuestionnaireResponse",
@@ -49,12 +49,12 @@ const questionnaireResponse = {
       ]
     }
   ]
-};
+}
 
 const resolvers = {
   Query: {
     questionnaireResponses() {
-      return [questionnaireResponse];
+      return [questionnaireResponse]
     },
     // args: linkId
     // Using the linkId, find the corresponding questionnaireResponseItem
@@ -63,9 +63,9 @@ const resolvers = {
       const questionnaireResponseItem = findByLinkId(
         questionnaireResponse, // getting the questionnaire Response will become async when we hook up FHIR HAPI
         args.linkId
-      );
+      )
 
-      return questionnaireResponseItem.answer;
+      return questionnaireResponseItem.answer
     }
 	  //args: id of the patient
 	  //Using the patient id, find the correspoding patient
@@ -78,4 +78,4 @@ const resolvers = {
       }
     };
 
-export default resolvers;
+export default resolvers

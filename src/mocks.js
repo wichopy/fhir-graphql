@@ -1,7 +1,7 @@
-import casual from 'casual'
+import casual from "casual"
 
-casual.define('fhir_medication_statement', function() {
-  return 'MedicationStatement/123'
+casual.define("fhir_medication_statement", function() {
+  return "MedicationStatement/123"
 })
 
 const mocks = {
@@ -20,7 +20,7 @@ const mocks = {
     suffix: () => [casual.name_suffix, casual.name_suffix,],
     text: () => casual.full_name,
   }),
-  String: () => 'It works!',
+  String: () => "It works!",
   Address: () => ({
     country: casual.country_code,
     postalCode: casual.zip,
@@ -39,6 +39,6 @@ const mocks = {
   Reference: () => ({
     reference: casual.fhir_medication_statement,
   })
-};
+}
 
-export default mocks;
+export default mocks

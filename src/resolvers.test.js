@@ -1,4 +1,4 @@
-import { findByLinkId } from "./resolverHelpers";
+import { findByLinkId } from "./resolverHelpers"
 
 const questionnaireResponse = {
   resourceType: "QuestionnaireResponse",
@@ -49,7 +49,7 @@ const questionnaireResponse = {
       ]
     }
   ]
-};
+}
 
 test("resolves questionnaire answers given a linkId", () => {
   expect(findByLinkId(questionnaireResponse, "cohort-number")).toEqual({
@@ -72,5 +72,5 @@ test("resolves questionnaire answers given a linkId", () => {
         }
       }
     ]
-  });
-});
+  })
+})
