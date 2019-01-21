@@ -2,30 +2,14 @@
     "env": {
         "es6": true,
         "node": true,
-	"jest/globals": true
+	      "jest/globals": true
     },
-    "extends": "eslint:recommended",
+		"extends": "airbnb-base/legacy",
     "parserOptions": {
         "ecmaVersion": 2017,
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error",
-	    "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ]
     },
     "plugins": [ "jest" ]
 }
