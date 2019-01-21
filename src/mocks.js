@@ -1,6 +1,6 @@
 import casual from 'casual';
 
-casual.define('fhir_medication_statement', function () {
+casual.define('fhir_medication_statement', () => {
   return 'MedicationStatement/123';
 });
 

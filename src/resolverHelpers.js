@@ -6,10 +6,13 @@ export const findByLinkId = (questionnaireResponse, linkId) => {
     }
 
     if (questionnaireResponse.item) {
+      // eslint-disable-next-line
       for (let item of QRItem.item) {
         return traverseQR(item);
       }
     }
+
+    return null;
   };
 
   return traverseQR(questionnaireResponse);
