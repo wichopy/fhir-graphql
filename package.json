@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "babel-node src/index.js",
+    "start-local": "ENV=local babel-node src/index.js",
+    "start-remote": "ENV=remote babel-node src/index.js",
     "lint": "eslint ./src"
   },
   "author": "",
