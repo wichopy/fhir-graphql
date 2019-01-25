@@ -136,13 +136,23 @@ const typeDefs = `
     address: [Address]
   }
 
+  type Attachment {
+    contentType: String
+    data: String
+  }
+
   type QuestionnaireResponseAnswer {
     valueDate: String
+    valueDateTime: String
+    valueTime: String
+    valueUri: String
     valueCoding: Code
     valueDecimal: Float
     valueBoolean: Boolean
     valueInteger: Int
     valueReference: Reference
+    valueString: String
+    valueAttachment: Attachment
   }
 
   type QuestionnaireResponseItem {
