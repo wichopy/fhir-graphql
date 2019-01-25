@@ -8,12 +8,18 @@ const Fhir = {
   getAll({ resource, searchParams }) {
     const url = serverUrl + resource + (searchParams ? '?' + searchParams : '')
     return fetch(url)
-      .then(res => res.json())
+      .then(res => res.json()).then(json => {
+        console.log('Response from ' + url + '\n' + JSON.stringify(json, null, 2).substring(0, 100) + '\n' + '... ')
+        return json
+      })
   },
   getOne({ resource, id, searchParams }) {
     const url = serverUrl + resource + '/' + id + (searchParams ? '?' + searchParams : '')
     return fetch(url)
-      .then(res => res.json())
+      .then(res => res.json()).then(json => {
+        console.log('Response from ' + url + '\n' + JSON.stringify(json, null, 2).substring(0, 100) + '\n' + '... ')
+        return json
+      })
   }
 }
 
